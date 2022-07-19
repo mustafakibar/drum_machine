@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css5?family=Permanent+Marker&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 1000'%3E%3Cg %3E%3Ccircle fill='%23E0F2F2' cx='50' cy='0' r='50'/%3E%3Cg fill='%23daf0f1' %3E%3Ccircle cx='0' cy='50' r='50'/%3E%3Ccircle cx='100' cy='50' r='50'/%3E%3C/g%3E%3Ccircle fill='%23d3eef1' cx='50' cy='100' r='50'/%3E%3Cg fill='%23cdecf0' %3E%3Ccircle cx='0' cy='150' r='50'/%3E%3Ccircle cx='100' cy='150' r='50'/%3E%3C/g%3E%3Ccircle fill='%23c7eaf0' cx='50' cy='200' r='50'/%3E%3Cg fill='%23c0e8f1' %3E%3Ccircle cx='0' cy='250' r='50'/%3E%3Ccircle cx='100' cy='250' r='50'/%3E%3C/g%3E%3Ccircle fill='%23bae6f1' cx='50' cy='300' r='50'/%3E%3Cg fill='%23b4e4f2' %3E%3Ccircle cx='0' cy='350' r='50'/%3E%3Ccircle cx='100' cy='350' r='50'/%3E%3C/g%3E%3Ccircle fill='%23aee2f3' cx='50' cy='400' r='50'/%3E%3Cg fill='%23a9e0f4' %3E%3Ccircle cx='0' cy='450' r='50'/%3E%3Ccircle cx='100' cy='450' r='50'/%3E%3C/g%3E%3Ccircle fill='%23a3ddf5' cx='50' cy='500' r='50'/%3E%3Cg fill='%239edbf6' %3E%3Ccircle cx='0' cy='550' r='50'/%3E%3Ccircle cx='100' cy='550' r='50'/%3E%3C/g%3E%3Ccircle fill='%239ad8f7' cx='50' cy='600' r='50'/%3E%3Cg fill='%2396d5f8' %3E%3Ccircle cx='0' cy='650' r='50'/%3E%3Ccircle cx='100' cy='650' r='50'/%3E%3C/g%3E%3Ccircle fill='%2392d2fa' cx='50' cy='700' r='50'/%3E%3Cg fill='%238fcffb' %3E%3Ccircle cx='0' cy='750' r='50'/%3E%3Ccircle cx='100' cy='750' r='50'/%3E%3C/g%3E%3Ccircle fill='%238cccfc' cx='50' cy='800' r='50'/%3E%3Cg fill='%238ac9fd' %3E%3Ccircle cx='0' cy='850' r='50'/%3E%3Ccircle cx='100' cy='850' r='50'/%3E%3C/g%3E%3Ccircle fill='%2389c6fe' cx='50' cy='900' r='50'/%3E%3Cg fill='%2389c3ff' %3E%3Ccircle cx='0' cy='950' r='50'/%3E%3Ccircle cx='100' cy='950' r='50'/%3E%3C/g%3E%3Ccircle fill='%2389BFFF' cx='50' cy='1000' r='50'/%3E%3C/g%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: contain;
+}
+
+.drum-machine {
+  padding: 2rem 7rem;
+  border-radius: 13px;
+  background-color: #ffffff2f;
+  background-image: radial-gradient(#aeafc721 0.5px, transparent 0.5px),
+    radial-gradient(#aeafc73f 0.5px, #ffffff13 0.5px);
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 10px;
+  box-shadow: 0px 0px 37px -8px rgba(0, 0, 0, 0.75);
+
+  .display {
+    text-align: center;
+    min-height: 1.5rem;
+  }
+
+  .drum-pad-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: 4rem;
+    padding: 2rem 1.5rem;
+
+    .drum-pad {
+      min-width: 8rem;
+      min-height: 8rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+
+      background-color: rgba(40, 130, 190, 0.3);
+      border: 2px solid black;
+      border-radius: 1rem;
+      outline: 3px solid black;
+      transition: all 700ms cubic-bezier(0.075, 0.82, 0.165, 1);
+
+      --text-color: black;
+
+      &:hover {
+        border-color: rgba(40, 130, 190, 0.1);
+        outline: 10px solid rgba(40, 130, 190, 0.7);
+        --text-color: rgba(40, 100, 190, 1);
+      }
+
+      span {
+        display: inline-block;
+        color: var(--text-color);
+        font-size: 4rem;
+        font-family: 'Permanent Marker', cursive;
+        pointer-events: none;
+        user-select: none;
+      }
+    }
+
+    .drum-pad:focus,
+    .drum-pad--active {
+      transform: scale(1.3);
+      --text-color: rgb(0, 255, 255) !important;
+    }
+  }
+}
